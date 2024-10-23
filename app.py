@@ -12,9 +12,9 @@ CURR_USER_KEY = "curr_user"
 
 app = Flask(__name__)
 
-#if __name__ == "__main__":
-#    port = int(os.environ.get("PORT", 5000))
-#    app.run(host="0.0.0.0", port = port)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port = port)
 
 DATABASE_URL = os.environ.get("DATABASE_URL")
 # Get DB_URI from environ variable (useful for production/testing) or,
