@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{item['name']}}</h1>
+<img src = "{{item['sprites']['default']}}">
+<div>Effect: {{item['effect_entries'][0]['effect']}}</div>
+{% if held_by != 0 %}
+<ul>Held By:
+    {% for pokemon in item['held_by_pokemon'] %}
+    <li>{{pokemon['pokemon']['name']}}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+
+{% endblock %}

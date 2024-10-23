@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{team.name}}</h2>
+<div>Gen: {{team.gen}}</div>
+{% if team.pokemon %}
+<ul>
+    {% for pokemon in team.pokemon %}
+    <li><a href = "/teams/pokemon/{{pokemon.id}}">{{pokemon.name}}</a><form method = "POST" action = '/teams/{{team.id}}/pokemon/{{pokemon.id}}/delete' ><button>Delete</button></form></li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% if add_ok == True %}
+<form action = "/teams/{{team.id}}/add">
+    <button>Add Pokemon</button>
+</form>
+{% endif %}
+{% endblock %}

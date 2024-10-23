@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 id = 'name'>{{pokemon["name"]}}</h2>
+<section id = sprite>
+    <span><img id = "normal_sprite" src = '{{sprites["front_default"]}}'> </span>    
+    <span><img id = "shiny_sprite" src = '{{sprites["front_shiny"]}}'> </span>
+</section>
+<section>
+    {% if types == 2 %}
+    <div>Type: {{pokemon['types'][0]['type']['name']}}/{{pokemon['types'][1]['type']['name']}}</div>
+    {% else %}
+    <div>Type: {{pokemon['types'][0]['type']['name']}}
+    {% endif %}
+    <div><ul>Held Items:
+        {% for item in items %}
+        <li>{{item['item']['name']}}</li>
+        {% endfor %}
+    </ul></div>
+</section>
+
+<h3>Abilities</h3>
+<ul id = "ability" class = '{{pokemon["id"]}}' >
+</ul>
+<h3>Stats</h3>
+<ul>
+    {% for stat in stats %}
+    <li>{{stat['stat']["name"]}}: {{stat['base_stat']}}</li>
+    {% endfor %}
+</ul>
+<h3>Moves</h3>
+<ul>
+    {% for version in versions %}
+    <li><a href = "/pokemon/{{pokemon['name']}}/moves/{{version['version']['name']}}">{{version["version"]["name"]}}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+
+{% block javascript %}
+<script src="https://unpkg.com/jquery"></script>
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+<script src="https://unpkg.com/lodash"></script>
+<script type = "text/javascript" src= "{{ url_for('static', filename = 'pokemon.js')}}"></script>
+{% endblock %}

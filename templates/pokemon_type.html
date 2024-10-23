@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{type}}</h2>
+<ul>
+    {% for result in pokemon %}
+    <li><a href= "/pokemon/{{result['pokemon']['name']}}">{{result['pokemon']['name']}}</a></li>
+
+    {% endfor %}
+</ul>
+
+{% endblock %}

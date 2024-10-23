@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{type}}</h2>
+<ul>
+    {% for result in moves %}
+    <li><a href= "/moves/{{result['name']}}">{{result['name']}}</a></li>
+
+    {% endfor %}
+</ul>
+
+{% endblock %}

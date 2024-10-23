@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="col-sm-6">
+    <h2>{{user.username}}</h2>
+    <h3>Teams</h3>
+    <ul class="list-group" id="teams">
+
+      {% for team in teams %}
+
+        <li class="list-group-item">
+          <a href="/teams/{{ team.id }}" class="message-link">{{ team.name }}</a>
+          <form method = "POST" action = '/teams/{{ team.id }}/delete'><button>Delete</button></form>
+        </li>
+
+      {% endfor %}
+
+    </ul>
+  </div>
+  <h3><a href = "/teams/new">Add Team</a></h3>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>{{move["name"]}}</h2>
+<div>
+<span>Base Power: {{move['power']}}  </span>
+<span>Accuracy: {{move['accuracy']}}</span>
+<span>Effect Chance:  {{move['effect_chance']}}  </span>
+
+
+</div>
+
+
+<div>
+    <span>Type: {{move['type']['name']}}    </span>
+    <span>Damage Class: {{move['damage_class']['name']}}</span>
+    <span>PP:   {{move['pp']}}</span>
+</div>
+
+<div>
+    Effect: {{move['effect_entries'][0]['short_effect']}}
+</div>
+
+{% endblock %}

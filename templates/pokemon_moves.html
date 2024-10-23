@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{(pokemon['name']).capitalize()}}'s {{version}} Moves</h2>
+<table id = "moves">
+    <tr>
+    <th>Move</th>
+    <th>Learn Method</th>
+    </tr>
+    {% for move in moves %}
+    {% for game in move['version_group_details'] %}
+    {% if game['version_group']['name'] ==  version %}
+    <tr>    
+    <td><a href = "/moves/{{move['move']['name']}}">{{move['move']['name']}}</a></td>
+    <td>
+
+    {% if game['move_learn_method']['name'] == 'machine' %}
+    <li>Machine</li>
+    {% elif game['move_learn_method']['name'] == 'tutor' %}
+    <li>Tutor</li>
+    {% else %}
+    <li>Level {{game['level_learned_at']}}</li>
+   {% endif %}
+    </td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+    {% endfor %}
+    </table>
+<script src="https://unpkg.com/jquery"></script>
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+<script src="https://unpkg.com/lodash"></script>
+<script src="/scripts/moves.js"></script>
+    {% endblock %}

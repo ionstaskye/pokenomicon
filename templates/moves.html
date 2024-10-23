@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Search For a Pokemon</h2>
+<form class = "search" action = "/moves/search">
+    <div>Name</div><input type="text" id= "name" name="name" placeholder="Pokemon">
+    <button>Search</button>
+</form>
+<ul>
+{% for result in types %}
+<li><a href = "/moves/type/{{result['name']}}">{{result["name"]}}</a></li>
+
+{% endfor %}
+
+{% endblock %}

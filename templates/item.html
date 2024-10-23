@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Pokeballs</h2>
+<ul id = "pokeballs"></ul>
+
+<h2>Healing Items</h2>
+<ul id = "healing"></ul>
+
+<h2>Battle Items</h2>
+<ul id = "battle"></ul>
+
+<h2>Other</h2>
+<ul id = 'other'></ul>
+
+
+
+
+{% endblock %}
+{% block javascript %}
+<script src="https://unpkg.com/jquery"></script>
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+<script src="https://unpkg.com/lodash"></script>
+<script type = "text/javascript" src= "{{ url_for('static', filename = 'items.js')}}"></script>
+
+{% endblock %}
