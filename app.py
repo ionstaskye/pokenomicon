@@ -129,7 +129,7 @@ def display_home_page():
 
     return render_template("home.html")
 
-app.run()
+
 
 @app.route("/pokemon")
 def display_pokemon_page():
